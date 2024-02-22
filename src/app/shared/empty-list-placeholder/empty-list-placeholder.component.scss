@@ -1,0 +1,38 @@
+.container {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  border-width: 1px;
+  border-color: #B7B7B7;
+  border-radius: 10px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 20px;
+  color: #5D5D5D;
+}
+
+.description {
+  font-size: 15px;
+  color: #747474;
+}
+
+.custom-button {
+  color: white ;
+  background-color: #66B0F0;
+  border-radius: 999px;
+  height: 30px;
+  cursor: pointer;
+  border-color: #66B0F0;
+}
+

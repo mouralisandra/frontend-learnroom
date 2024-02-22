@@ -1,0 +1,39 @@
+
+
+<div *ngIf="element " [ngStyle]="{'width':'100%'}">
+    <div [ngStyle]="{'display':'flex','justify-content':'space-between','width':'100%'}">
+      <h3 [ngStyle]="{'font-weight': '600', 'font-size': '24px'}">{{ element?.name }}</h3>
+      <div *ngIf="isTeacher">
+        <div ngbDropdown class="d-inline-block">
+          <button type="button" class="btn" ngbDropdownToggle [ngStyle]="{'padding':'5px 10px','border':'1px solid grey','border-radius':'10px','cursor':'pointer'}"  >
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button (click)="toggleEditMode()" ngbDropdownItem>Edit</button>
+            <button (click)="deleteFunction()" ngbDropdownItem>Delete</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <h1 [ngStyle]="{'font-size': '18px',color:'gray' }">
+      {{ element?.teacher?.name }}    </h1>
+
+    <ng-container *ngIf="(!isTeacher && editMode)">
+
+
+
+    </ng-container>
+
+      <li  *ngIf="elementType === 'assignment' " [ngStyle]="{'font-size': '16px'}">
+        {{ element.deadline  | date: 'dd-MM-yyyy' }}  </li>
+      <li [ngStyle]="{'font-size': '16px','font-weight': '600'}">{{ element.points ?? 100 }} points</li>
+      <hr [ngStyle]="{'width': '100%', 'margin-top': '4px', 'border-color': '#A6A6A6', 'border-width': '0.75px'}" />
+      <pre [ngStyle]="{'white-space': 'pre-wrap',color:'gray'}">{{ element.content }}</pre>
+
+
+
+
+
+  </div>
+

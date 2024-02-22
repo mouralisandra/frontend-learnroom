@@ -1,0 +1,16 @@
+<div class="buttons-container">
+  <div style="width: 100%; gap: 20px; flex-direction: row">
+    <button class="for-educators-button" (click)="handleButtonClick(1)">
+      For educators
+    </button>
+    <button class="for-students-button" (click)="handleButtonClick(2)">
+      For students
+    </button>
+  </div>
+
+  <ul>
+    <li *ngFor="let item of displayText; let i = index" style="font-size: 22px">
+      {{ item }}
+    </li>
+  </ul>
+</div>

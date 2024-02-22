@@ -1,0 +1,88 @@
+<div
+  style="
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 50px;
+    width: 100%;
+    flex-direction: column;
+  "
+>
+  <div
+    style="
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+    "
+  >
+    <div
+      style="
+        width: 50%;
+        text-align: left;
+        display: flex;
+        justify-content: center;
+      "
+    >
+      <div style="margin-bottom: 150px; gap: 10px">
+        <h1 style="font-size: 32px; font-weight: bold">
+          Where teaching and learning come together
+        </h1>
+
+        <p style="font-size: 24px; font-weight: normal">
+          Your all-in-one place for teaching and learning. Easy-to-use and
+          secure tool that helps educators manage, measure, and enrich learning
+          experiences.
+        </p>
+
+        <button
+          type="button"
+          class="coral-button button start-button"
+          (click)="startSignup()"
+        >
+          Start
+        </button>
+      </div>
+    </div>
+    <div style="width: 50%">
+      <img
+        src="../../assets/images/landingImage.png"
+        alt="landing image"
+        style="width: 100%"
+      />
+    </div>
+  </div>
+
+  <div class="grid-container">
+    <div class="grid-item" *ngFor="let item of gridItems">
+      <div class="content">
+        <img
+          [src]="item.image"
+          [alt]="item.title"
+          style="width: 100%; margin-bottom: 10px"
+        />
+
+        <h1>{{ item.title }}</h1>
+        <p>{{ item.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <app-text-button />
+
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      width: 100%;
+    "
+  >
+    <img src="../../assets/images/quote.png" alt="quote" style="width: 80%" />
+  </div>
+</div>

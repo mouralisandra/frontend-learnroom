@@ -1,0 +1,19 @@
+<form [formGroup]="classroomForm" (ngSubmit)="onSubmit()">
+  <div class="modal-body">
+    <div class="form-group">
+      <label>Classroom's ID</label>
+      <input formControlName="id" class="form-control" />
+      <div
+        *ngIf="classroomForm.get('id')?.hasError('required')"
+        class="text-danger"
+      >
+        Classroom's ID is required
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary">
+      Submit
+    </button>
+  </div>
+</form>

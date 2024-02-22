@@ -1,0 +1,30 @@
+.grid-container {
+  width: 100%;
+  height: fit-content;
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  background-color: #fffbec;
+}
+
+.grid-item {
+  padding: 20px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  text-align: center;
+  gap: 10px;
+}
+.start-button {
+  margin-left: 180px;
+  margin-top: 50px;
+  height: 45px;
+  width: 150px;
+}
+
+/* Add more styles as needed */

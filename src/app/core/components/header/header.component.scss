@@ -1,0 +1,64 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: #ffffff;
+  border-bottom: 0.75px solid #828282;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+
+  .hstack-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .logo {
+    height: 42px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .title {
+    padding-top: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: #2d3748;
+  }
+
+  .button-container {
+    display: flex;
+  }
+}
+
+.header-separator {
+  height: 75px;
+}
+
+.divider {
+  height: 30px;
+  margin: 0 10px;
+  border-right: 3.5px solid #20b2aa;
+}
+
+.role {
+  font-size: 20px;
+  font-weight: bolder;
+  color: #2d3748;
+  margin-top: 4px;
+  margin-bottom: 0px;
+}
+
+/* Add this to your header.component.scss or styles.scss */
+.icon-flag {
+  width: 24px;
+  height: 16px;
+  margin-right: 8px;
+  background-size: contain;
+  display: inline-block;
+}
+

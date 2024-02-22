@@ -1,0 +1,41 @@
+
+.student-list {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.student-item {
+  margin-bottom: 10px;
+}
+
+.card {
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.student{
+  display: flex;
+  flex-direction: row;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.email {
+  color: #555;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  margin: 5px 0;
+}
+

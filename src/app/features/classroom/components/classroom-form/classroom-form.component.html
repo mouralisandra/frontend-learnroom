@@ -1,0 +1,33 @@
+<div class="modal-body">
+  <h3>Add Classroom</h3>
+  <form [formGroup]="classroomForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Classroom Name</label>
+      <input type="text" class="form-control" formControlName="name" />
+      <div class="text-danger" *ngIf="validateField('name', 'required')">
+        Classroom Name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea class="form-control" formControlName="description"></textarea>
+      <div class="text-danger" *ngIf="validateField('description', 'required')">
+        Description is required
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="classroomForm.invalid"
+      >
+        Submit
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="onClose()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

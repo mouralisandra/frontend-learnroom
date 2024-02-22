@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="box">
+    <br />
+    <img [src]="image" alt="Empty State" height="100px" />
+    <br />
+    <p class="title">{{ title }}</p>
+    <p class="description">{{ descriptionText1 + descriptionText2 }}</p>
+    <br />
+    <ng-container *ngIf="user !== 'teacher'">
+      <button class="custom-button" (click)="goHome()">Go home</button>
+      <br />
+    </ng-container>
+  </div>
+</div>

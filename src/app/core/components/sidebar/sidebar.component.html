@@ -1,0 +1,89 @@
+<div class="sidebar-container" [ngClass]="{ 'sidebar-collapsed': !isCollapsed }">
+<div class="sidebar">
+
+    <button class="toggle-button" (click)="toggleSidebar()">
+      <span >&times;</span>
+     </button>
+
+    <div class="hstack-container">
+      <app-avatar [name]="(currentUser$ | async)!.name"  [avatarColor]="(currentUser$ | async)!.avatar_color"></app-avatar>
+      <p style="font-size: 1.25rem; margin-bottom: 0">{{(currentUser$ | async)!.name}}</p>
+    </div>
+
+  <p>{{(currentUser$ | async)!.email}}</p>
+
+  <div class="hstack-container space-between">
+  <h3> Home</h3>
+  <button type="button" class="btn btn-sm custom-btn" (click)="navigateToHome()">
+    <i class="bi bi-arrow-right-square"></i>
+  </button>
+  </div>
+  <div class="mt-3"></div>
+  <hr />
+  <div class="mb-3 d-flex justify-content-end">
+    <div>
+    <button class="btn btn-sm btn-light me-2" (click)="accordion.expandAll()">Expand all</button>
+    <button class="btn btn-sm btn-light me-2 ms-auto" (click)="accordion.collapseAll()">Collapse all</button> <!-- ms-auto pushes it to the right -->
+    </div>
+  </div>
+
+  <div ngbAccordion #accordion="ngbAccordion">
+    <div ngbAccordionItem="first">
+      <h2 ngbAccordionHeader>
+        <button ngbAccordionButton>Courses</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <ng-template>
+            <div *ngFor="let course of (courses$ | async)">
+              <div class="card mb-1" (click)="navigateToCourse(course.id)">
+                <div class="card-body">
+                  {{course.name}}
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div ngbAccordionItem="second">
+      <h2 ngbAccordionHeader>
+        <button ngbAccordionButton>Tasks</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <ng-template>
+            <div *ngFor="let task of (tasks$ | async)">
+              <div class="card mb-1" (click)="navigateToTask(task.id)">
+                <div class="card-body">
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div ngbAccordionItem="third">
+      <h2 ngbAccordionHeader>
+        <button ngbAccordionButton>Assignments</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <ng-template>
+            <div *ngFor="let assignment of (assignments$ | async)">
+              <div class="card mb-1" (click)="navigateToAssignment(assignment.id)">
+                <div class="card-body">
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+</div>

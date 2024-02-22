@@ -1,0 +1,23 @@
+<div class="d-flex  justify-content-flex-start m-lg-4 flex-column home-wrapper" >
+  <form [formGroup]="searchForm" class="form-group">
+    <div class="input-group">
+      <input autocomplete="off" class="form-control" id="search" formControlName="searchTerm" placeholder="Search a classroom.."/>
+    </div>
+  </form>
+    <!-- TODO: handle loading state -->
+  <div class="d-flex flex-wrap " style="justify-content: space-around" *ngIf="classrooms">
+
+    <div *ngFor="let result of classrooms">
+      <a [routerLink]="['/classroom', result.id]" >
+        <app-classroom-card [classroom]="result"></app-classroom-card>
+      </a>
+    </div>
+
+    <div *ngIf="!classrooms?.length">
+      <h3>No results found</h3>
+    </div>
+
+  </div>
+  <button class=" button green-button" style="width: 300px;align-self:center" (click)="onClick()">{{label}}</button>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,61 @@
+<div *ngIf="assignment" [ngStyle]="{'display':'flex','flex-direction': 'column', 'justify-content':'center','align-items':'center','margin':'50px 0px'}">
+
+  <div [ngStyle]="{'width':'80%'}">
+    <app-element-details
+            (editModeChange)="toggleEditMode($event)"
+            [elementType]="'assignment'"
+            [element]="assignment"
+            [editMode]="editMode"
+            (deleteElement)="deleteAssignment()"
+            [isTeacher]="(this.authService.isTeacher$ | async) || false "
+    > </app-element-details>
+  </div>
+    <ng-container *ngIf="!isTeacher">
+      <br />
+      <form
+        [ngStyle]="{'flex-direction': 'column','display':'flex','gap':'10px',width:'80%'}"
+        [formGroup]="submitAssignmentForm"
+        (ngSubmit)="onSubmit()">
+        <label for="description">Description: </label>
+        <textarea  [ngStyle]="{'border-radius':'10px'}" id="description" type="text" formControlName="description"></textarea>
+        <div [ngStyle]="{'display':'flex','justify-content':'center'}">
+          <div *ngIf="submitAssignmentForm.errors?.['minlength']">
+            Name must be at least 4 characters long.
+          </div>
+          <button [ngStyle]="{'border-radius':'10px'}" type="submit" [disabled]="!submitAssignmentForm.valid">Submit</button>
+
+        </div>
+
+      </form>
+    </ng-container>
+
+    <ng-container *ngIf=" responsesAssignment.length > 0 &&  (authService.isAuthenticated$ | async) &&  (authService.isTeacher$ | async) ">
+       <div  *ngFor="let response of responsesAssignment; let i = index" [ngStyle]="{'gap':'10px',width:'100%','align-items':'center',display:'flex','flex-direction':'column'}">
+
+         <div [ngStyle]="{'border-radius':'10px',border:'1px black solid',padding:'5px 10px',width:'80%','margin-bottom':'10px'}" >
+        <h4>Student Name</h4>
+        <span>{{response?.content}}</span>
+        <div [ngStyle]="{display:'flex',gap:'5px','flex-direction':'column','align-items':'flex-end'}">
+          <div>
+            <span>Score:</span>
+            <input type="number" placeholder='points'
+                   [ngModel]="response?.score"
+                   (input)="onScoreChange($event, i)"
+                   [ngStyle]="{'border-radius':'10px',width:'80px','margin-left':'5px',padding:'0px 5px'}" />
+          </div>
+          <button [ngStyle]="{width:'100px',}"
+                  (click)="submitResponseAssignment(response.id)"
+          > Validate </button>
+
+        </div>
+
+      </div>
+
+    </div>
+  </ng-container>
+    <ng-container *ngIf="isAssignmentSubmited && !isTeacher " >
+
+    </ng-container>
+
+
+</div>

@@ -1,0 +1,14 @@
+/* classroom-card.component.css */
+.card {
+  max-width: 370px;
+  cursor: pointer;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+
+.classroom-image {
+  border-radius: 10px;
+  height: 270px;
+  width: 370px;
+}

@@ -1,0 +1,46 @@
+<form [formGroup]="assignmentForm" class="modal-body" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label>Assignment Title</label>
+    <input formControlName="name" class="form-control" />
+    <div *ngIf="validateField('name', 'required')" class="text-danger">
+      Assignment Title is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Content</label>
+    <textarea formControlName="content" class="form-control"></textarea>
+    <div *ngIf="validateField('content', 'required')" class="text-danger">
+      Content is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Max Points</label>
+    <input formControlName="points" type="number" class="form-control" />
+    <div *ngIf="validateField('points', 'required')" class="text-danger">
+      Assignment points is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Deadline</label>
+    <input formControlName="deadline" type="date" class="form-control" />
+    <div *ngIf="validateField('deadline', 'required')" class="text-danger">
+      Deadline is required
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="assignmentForm.invalid"
+    >
+      {{buttonName}}
+    </button>
+    <button type="button" class="btn btn-secondary" (click)="onClose()">
+      Cancel
+    </button>
+  </div>
+</form>

@@ -1,0 +1,13 @@
+{
+  "heading": "LearnRoom",
+  "teacherRole": "Enseignant",
+  "studentRole": "Étudiant",
+  "signIn": "Se connecter",
+  "signUp": "S'inscrire",
+  "signOut": "Déconnexion",
+  "selectLanguage": "Choisir la langue",
+  "flagAltFr": "Drapeau français",
+  "flagAltEn": "Drapeau anglais",
+  "menuFrancais": "Français",
+  "menuEnglish": "Anglais"
+}

@@ -1,0 +1,23 @@
+<!-- task-list.component.html -->
+<div *ngIf="assignments.length > 0; else emptyState">
+  <div *ngFor="let assignment of assignments">
+    <app-task_assignment-card
+      [path]="'/assignment/' + assignment?.id"
+      [task]="assignment"
+    ></app-task_assignment-card>
+  </div>
+</div>
+<ng-template #emptyState>
+  <div *ngIf="!inCard" >
+    <app-empty-list-placeholder [type]="'assignment'" [user]="(authService.isTeacher$ | async )? 'teacher' : 'student'"></app-empty-list-placeholder>
+  </div>
+  <div *ngIf="inCard">NO Assignments Yet </div>
+</ng-template>
+
+<div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+  <button *ngIf="(this.authService.isTeacher$ | async)&&!inCard && withButton"
+          class="btn btn-primary btn-rounded"
+          style="background-color: #66B0F0;margin-top: 10px;margin-bottom: 10px; border-radius: 20px;"
+          (click)="onAddAssignmentClick()">Add Assignment
+  </button>
+</div>

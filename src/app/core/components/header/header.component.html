@@ -1,0 +1,80 @@
+  <div  class="pos-f-t">
+  <div *ngIf="this.authService.isAuthenticated$ | async" [ngbCollapse]="isCollapsed" id="navbarToggleExternalContent">
+    <app-sidebar [isCollapsed]="isCollapsed" (toggle)="toggleSidebar()"></app-sidebar>
+  </div>
+  <nav *ngIf="showHeader" class="header-container navbar">
+    <div class="hstack-container" >
+
+    <button  *ngIf="this.authService.isAuthenticated$ | async" class="navbar-toggler " (click)="isCollapsed = !isCollapsed" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarToggleExternalContent"
+            aria-controls="navbarToggleExternalContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+      <div class="hstack-container" (click)="navigateToPreview()">
+      <img src="/assets/logo.png" alt="logo" class="logo" />
+      <h2 class="title">{{ 'heading' | translate }}</h2>
+      <div *ngIf="this.authService.isAuthenticated$ | async" class="divider"></div>
+      <p
+        class="role"
+        *ngIf="(this.authService.isAuthenticated$ | async) && (this.authService.isTeacher$ | async); else studentBlock"
+      >
+        {{ 'teacherRole' | translate }}
+      </p>
+      <ng-template #studentBlock>
+        <p class="role" *ngIf="this.authService.isAuthenticated$ | async">{{ 'studentRole' | translate }}</p>
+      </ng-template>
+        </div>
+
+    </div>
+
+    <div class="nav nav-pills">
+      <div class="button-container nav-item">
+        <button class="button" *ngIf="!(this.authService.isAuthenticated$ | async)" (click)="signIn()">
+          {{ 'signIn' | translate }}
+        </button>
+
+        <button
+          class="button green-button"
+          *ngIf="!(this.authService.isAuthenticated$ | async)"
+          (click)="signUp()"
+        >
+          {{ 'signUp' | translate }}
+        </button>
+
+        <button class="button" *ngIf="this.authService.isAuthenticated$ | async" (click)="signOut()">
+          {{ 'signOut' | translate }}
+        </button>
+      </div>
+
+      <div ngbDropdown class="nav-item">
+        <button
+          type="button"
+          class="btn btn-outline-primary "
+          id="languageSelect"
+          [(ngModel)]="selectedLanguage"
+          ngbDropdownToggle
+        >
+          <ng-container *ngIf="selectedLanguage === 'fr'; else enImage">
+            <img width="16px" height="10px" src="assets/flags/fr.png" alt="{{ 'flagAltFr' | translate }}" />
+          </ng-container>
+          <ng-template #enImage>
+            <img width="16px" height="10px" src="assets/flags/en.jpeg" alt="{{ 'flagAltEn' | translate }}" />
+          </ng-template>
+        </button>
+        <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownBasic1">
+          <button value="fr" ngbDropdownItem (click)="onLanguageChange('fr')">
+            <span><img width="16px" height="10px" src="assets/flags/fr.png" alt="{{ 'flagAltFr' | translate }}" /></span> {{ 'menuFrancais' | translate }}
+          </button>
+          <button value="en" ngbDropdownItem (click)="onLanguageChange('en')">
+            <span><img width="16px" height="10px" src="assets/flags/en.jpeg" alt="{{ 'flagAltEn' | translate }}" /></span> {{ 'menuEnglish' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="header-separator"></div>
+</div>

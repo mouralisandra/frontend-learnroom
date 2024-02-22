@@ -1,0 +1,13 @@
+{
+  "heading": "LearnRoom",
+  "teacherRole": "Teacher",
+  "studentRole": "Student",
+  "signIn": "Sign In",
+  "signUp": "Sign Up",
+  "signOut": "Sign Out",
+  "selectLanguage": "Select Language",
+  "flagAltFr": "French Flag",
+  "flagAltEn": "English Flag",
+  "menuFrancais": "French",
+  "menuEnglish": "English"
+}

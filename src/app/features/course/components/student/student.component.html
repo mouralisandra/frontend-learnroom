@@ -1,0 +1,22 @@
+<!-- student.component.html -->
+
+<div  class="student-list">
+  <div class="student">
+    <app-avatar [name]="users.teacher.name" [avatarColor]="users.teacher.avatar_color"></app-avatar>
+    <div class="card-body">
+      <div class="name">{{ users.teacher.name }}</div>
+      <div class="email">{{ users.teacher.email }}</div>
+    </div>
+  <div class="divider">
+  <div *ngFor="let student of users.students" class="student-item">
+    <div class="student">
+     <app-avatar [name]="student.name" [avatarColor]="student.avatar_color"></app-avatar>
+      <div class="card-body">
+        <div class="name">{{ student.name }}</div>
+        <div class="email">{{ student.email }}</div>
+      </div>
+    </div>
+    <div class="divider">
+    </div>
+  </div>
+</div>

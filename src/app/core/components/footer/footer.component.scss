@@ -1,0 +1,25 @@
+$footer-background-color: #ededed;
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px;
+  background-color: $footer-background-color;
+}
+
+.footer-content {
+  height: 60px;
+  width: 100%;
+  background-color: $footer-background-color;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: inherit;
+  font-weight: lighter;
+  text-align: center;
+}

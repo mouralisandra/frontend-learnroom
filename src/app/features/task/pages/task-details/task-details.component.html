@@ -1,0 +1,27 @@
+<div *ngIf="(task)" [ngStyle]="{'display':'flex','flex-direction': 'column', 'justify-content':'center','align-items':'center','margin':'50px 0px'}">
+
+  <div [ngStyle]="{'width':'80%'}">
+    <app-element-details
+            (editModeChange)="toggleEditMode($event)"
+            [elementType]="'task'" [isTeacher]="isTeacher" [element]="task"  [editMode]="editMode"
+            (deleteElement)="deleteTask()" ></app-element-details>
+  </div>
+  <ng-container *ngIf=!isTeacher>
+    <ng-container *ngIf="!taskIsSubmitted">
+      <hr [ngStyle]="{'width': '100%', 'margin-top': '4px', 'border-color': '#A6A6A6', 'border-width': '0.75px'}" />
+      <p>
+        You finished this task?
+      </p>
+      <button
+              [ngStyle]="{'text-align':'center',color:'white',padding:'15px',width:'200px',backgroundColor:'orange',borderColor:'orange',borderRadius:'12px'}"
+              (click)="submitTask()">
+        Mark as Completed
+      </button>
+    </ng-container>
+    <ng-container *ngIf="taskIsSubmitted">
+      <p [ngStyle]="{'text-align':'center'}" >Task is Completed Succesfully !!</p>
+      <p [ngStyle]="{'text-align':'center',color:'white',padding:'15px',width:'200px',backgroundColor:'blue',borderRadius:'12px'}" >Well Done</p>
+    </ng-container>
+  </ng-container>
+</div>
+

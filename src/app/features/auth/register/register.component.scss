@@ -1,0 +1,22 @@
+.radio-button-container {
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  margin-top: 5px;
+}
+.sign-link {
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}
+.sign-form {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  width: 50%;
+}
+.label {
+  font-weight: 500;
+  font-size: 16px;
+}
